@@ -3,42 +3,215 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Unforgotten World</title>
+    <title>Unforgotten | Supporting Children with Disabilities & Special Needs</title>
     <style>
-        body { font-family: Arial, sans-serif; margin: 0; padding: 0; color: #333; line-height: 1.6; }
-        header { background: #1b4332; color: #fff; padding: 2rem 1rem; text-align: center; }
-        nav { background: #2d6a4f; padding: 0.5rem; text-align: center; }
-        nav a { color: white; margin: 0 15px; text-decoration: none; font-weight: bold; }
-        .container { padding: 2rem; max-width: 800px; margin: auto; }
-        footer { background: #081c15; color: #fff; text-align: center; padding: 1rem; margin-top: 2rem; }
+        :root {
+            --primary: #1b4332;
+            --secondary: #2d6a4f;
+            --accent: #52b788;
+            --bg-light: #f8f9fa;
+            --text-dark: #333333;
+        }
+        body { font-family: Arial, sans-serif; margin: 0; padding: 0; color: var(--text-dark); line-height: 1.6; background-color: #fff; }
+        header { background: var(--primary); color: #fff; padding: 2.5rem 1rem; text-align: center; }
+        header h1 { margin: 0 0 0.5rem 0; font-size: 2.5rem; }
+        header p { margin: 0; font-size: 1.2rem; opacity: 0.9; }
+        
+        nav { background: var(--secondary); padding: 0.8rem; text-align: center; position: sticky; top: 0; z-index: 1000; box-shadow: 0 2px 4px rgba(0,0,0,0.1); }
+        nav a { color: white; margin: 0 12px; text-decoration: none; font-weight: bold; font-size: 0.95rem; transition: color 0.2s; }
+        nav a:hover { color: var(--accent); }
+
+        .container { padding: 3rem 1.5rem; max-width: 900px; margin: auto; }
+        section { margin-bottom: 3rem; scroll-margin-top: 80px; }
+        
+        h2 { color: var(--primary); border-bottom: 2px solid var(--accent); padding-bottom: 0.5rem; margin-top: 0; }
+        h3 { color: var(--secondary); margin-top: 1.5rem; }
+        
+        .card { background: var(--bg-light); border-left: 4px solid var(--secondary); padding: 1.5rem; margin: 1rem 0; border-radius: 0 8px 8px 0; }
+        ul { padding-left: 1.5rem; }
+        li { margin-bottom: 0.5rem; }
+
+        .stats-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1.5rem; margin: 1.5rem 0; }
+        .stat-box { background: #e9f5ed; padding: 1.5rem; border-radius: 8px; text-align: center; }
+        .stat-box h4 { margin: 0 0 0.5rem 0; color: var(--primary); font-size: 1.5rem; }
+
+        footer { background: #081c15; color: #fff; text-align: center; padding: 2rem 1rem; margin-top: 3rem; }
+        footer a { color: var(--accent); text-decoration: none; }
     </style>
 </head>
 <body>
+
     <header>
-        <h1>Unforgotten World</h1>
-        <p>Official NGO Presentation</p>
+        <h1>Unforgotten</h1>
+        <p>Improving the lives of children with disabilities and special needs in rural areas</p>
     </header>
+
     <nav>
-        <a href="#about">About Us</a>
-        <a href="#mission">Our Mission</a>
+        <a href="#about">About</a>
+        <a href="#impact">Impact Journey</a>
+        <a href="#news">Latest News</a>
         <a href="#contact">Contact</a>
+        <a href="#donate" style="background: var(--accent); padding: 6px 12px; border-radius: 4px;">Donate</a>
     </nav>
+
     <div class="container">
+
+        <!-- ABOUT SECTION -->
         <section id="about">
             <h2>About Us</h2>
-            <p>Welcome to Unforgotten World. We are dedicated to supporting and serving communities in need.</p>
+            
+            <div class="card">
+                <h3>Our Mission</h3>
+                <p>To improve the lives of children with disabilities and special needs living in rural areas of low-income countries.</p>
+            </div>
+
+            <div class="card">
+                <h3>Our Vision</h3>
+                <p>A world where no child is denied access to education because of their abilities, background, or community. We work to break down barriers and create opportunities so that every child can learn, grow, and thrive.</p>
+            </div>
+
+            <div class="card">
+                <h3>Our Objectives</h3>
+                <p>To promote social inclusion and relieve the needs of children with disabilities or special educational needs living in rural areas of low-income countries, particularly those who are socially excluded due to their condition, with a particular focus on deaf children.</p>
+                <p>We aim to achieve this for the public benefit by:</p>
+                <ul>
+                    <li>Providing or supporting access to education, training, resources, and equipment</li>
+                    <li>Raising public awareness of the issues affecting such people, both generally and in relation to their social exclusion</li>
+                    <li>Providing training on identifying early signs of deafness and effective communication within families and the community through sign language</li>
+                </ul>
+                <p>To advance education in the causes and prevention of deafness for the public benefit in particular but not exclusively by delivering training and awareness programmes.</p>
+            </div>
+
+            <div class="card">
+                <h3>Our Goal</h3>
+                <p>To facilitate access to education, foster social inclusion, and raise awareness about the challenges these children face.</p>
+            </div>
+
+            <div class="card">
+                <h3>Our Story</h3>
+                <p>We are Álvaro Sampedro and María Castrillo, founders of Unforgotten. We met on a plane traveling from Madrid to Bristol, where we were both living at the time. That journey marked the beginning of our friendship, which has since been shaped by shared experiences—including a trip to Rwanda, where the idea for Unforgotten was born.</p>
+                <p>Although we are both from Madrid, our different backgrounds complement each other and bring a diverse set of skills to the organization.</p>
+                <p><strong>Álvaro</strong> studied Chemical Engineering. He enjoys working with data and is passionate about sports, travel, and learning about different cultures.</p>
+                <p><strong>María</strong> studied Law and has extensive experience in event organization and the charity sector. She is particularly interested in geopolitics and social issues.</p>
+                <p>We began building Unforgotten in January 2024. During this time, we have held extensive discussions with the Nyabihu School for the Deaf management and staff, engaged with other charities operating in the region, and sought guidance from experts in the field.</p>
+                <p><strong>Unforgotten was officially registered with the UK Charity Commission in August 2025.</strong></p>
+            </div>
+
+            <div class="card">
+                <h3>Location & Legal Status</h3>
+                <p>Based in the United Kingdom. Registered with the Charity Commission for England and Wales. Operating through direct partnerships in Rwanda.</p>
+                <p><strong>Registered Charity Number: 1214654</strong></p>
+            </div>
+
+            <div class="card">
+                <h3>Meet Our Team – Trustees</h3>
+                <p>The day-to-day operations of the charity are managed by María and Álvaro, supported by passionate individuals who contribute voluntarily. We work closely with local professionals and experts in Deaf education, ensuring that initiatives are locally led and sustainable.</p>
+                <p>A key pillar of our organization is our Board of Trustees, who provide strategic guidance, ensure alignment with our mission, oversee finances and compliance, and support risk management.</p>
+                <p><strong>Our Board of Trustees includes:</strong></p>
+                <ol>
+                    <li>Irene Soliño</li>
+                    <li>Kasia Dragun</li>
+                    <li>Susannah Stanway</li>
+                </ol>
+                <p><em>(Photos and short bios coming soon.)</em></p>
+            </div>
         </section>
-        <section id="mission">
-            <h2>Our Mission</h2>
-            <p>Our mission is to bring hope, resources, and sustainable aid to those who need it most.</p>
+
+        <!-- IMPACT JOURNEY SECTION -->
+        <section id="impact">
+            <h2>Impact Journey / Projects / Where We Work</h2>
+            <p>Currently, all our projects are focused on our partner school: <strong>Nyabihu School for the Deaf</strong>. This is the school where Álvaro volunteered for four months (November 2023 – February 2024).</p>
+
+            <h3>1. Summer Camp 2025</h3>
+            <p>The Unforgotten Summer Camp 2025 took place in August at the Nyabihu School for the Deaf, located in the Nyabihu District, Western Province of Rwanda. This initiative was developed in collaboration with the school to create a safe, creative, and engaging environment where students could learn and grow outside the pressures of the academic year.</p>
+            
+            <p><strong>Key Objectives of Summer Camp 2025:</strong></p>
+            <ul>
+                <li>Improve reading comprehension (a key academic challenge)</li>
+                <li>Strengthen practical math skills for everyday life</li>
+                <li>Train teachers in the use of digital tools (computers)</li>
+                <li>Develop vocational skills (e.g., sewing workshops)</li>
+                <li>Encourage artistic expression through art and dance</li>
+            </ul>
+
+            <p><strong>Impact & Learnings:</strong></p>
+            <p>The Summer Camp marked an important milestone for Unforgotten. It delivered meaningful learning experiences, strengthened trust with the school, and established a foundation for long-term collaboration.</p>
+            
+            <p>To measure long-term impact, we have requested annual reports from the school including:</p>
+            <ol>
+                <li>Number of enrolled students</li>
+                <li>National exam results</li>
+                <li>Outcomes of former students (education, employment, unemployment)</li>
+            </ol>
+
+            <div class="stats-grid">
+                <div class="stat-box">
+                    <h4>25.9%</h4>
+                    <p>Passed national exams over the past five years (14 out of 54 students).</p>
+                </div>
+                <div class="stat-box">
+                    <h4>64%</h4>
+                    <p>Former students currently unemployed or not studying (60 out of 93).</p>
+                </div>
+            </div>
+            <p><em>These figures highlight systemic barriers affecting deaf students’ access to education and employment.</em></p>
+
+            <h3>2. Books for the School (February 2026)</h3>
+            <p><strong>Making Learning Easier:</strong> In February 2026, we provided 190 textbooks to the school. Previously, most classes had only one textbook per subject, typically used by the teacher. This made it difficult for students to actively engage in lessons.</p>
+            
+            <p><strong>With increased access to books:</strong></p>
+            <ul>
+                <li>Students can follow lessons more effectively</li>
+                <li>Visual learning is improved through images and explanations</li>
+                <li>Confidence and participation in class increases</li>
+                <li>Teachers can now deliver lessons in a more structured and effective way</li>
+            </ul>
+
+            <p><strong>Opening Opportunities:</strong> This initiative supports students in preparing for their National Exams, which are required to progress to secondary education. Access to proper learning materials increases their chances of success and opens the door to further education and opportunities. Sometimes, something as simple as a book can transform a student’s future.</p>
         </section>
+
+        <!-- LATEST NEWS SECTION -->
+        <section id="news">
+            <h2>Latest News</h2>
+            <p>Welcome to our updates section! Check back here regularly for news, progress reports, and stories about our activities and impact in Rwanda and the UK.</p>
+            <div class="card">
+                <p><em>No recent announcements posted yet. Stay tuned!</em></p>
+            </div>
+        </section>
+
+        <!-- CONTACT SECTION -->
         <section id="contact">
-            <h2>Contact Us</h2>
-            <p>Email: info@unforgottenworld.org</p>
+            <h2>Contact</h2>
+            <p>Email: <a href="mailto:unforgottenwbh@gmail.com">unforgottenwbh@gmail.com</a></p>
+            <p>Connect with us on social media:</p>
+            <ul>
+                <li>Instagram: <a href="#" target="_blank">@unforgotten</a> (Link coming soon)</li>
+                <li>LinkedIn: <a href="#" target="_blank">Unforgotten NGO</a> (Link coming soon)</li>
+            </ul>
         </section>
+
+        <!-- DONATE SECTION -->
+        <section id="donate">
+            <h2>Donate</h2>
+            <div class="card" style="border-left-color: var(--accent);">
+                <h3>Support Our Cause</h3>
+                <p>We welcome direct contributions to support our educational initiatives and projects. You can donate directly to our bank account using the details below:</p>
+                <ul>
+                    <li><strong>Bank Name:</strong> [Insert Bank Name]</li>
+                    <li><strong>Account Name:</strong> Unforgotten</li>
+                    <li><strong>Account Number:</strong> [Insert Account Number]</li>
+                    <li><strong>Sort Code / Routing Number:</strong> [Insert Sort Code]</li>
+                    <li><strong>Reference:</strong> Donation / General Support</li>
+                </ul>
+                <p><em>Thank you for helping us break down barriers and create opportunities for children with special needs.</em></p>
+            </div>
+        </section>
+
     </div>
+
     <footer>
-        <p>&copy; 2026 Unforgotten World. All rights reserved.</p>
+        <p>&copy; 2026 Unforgotten. Registered Charity Number: 1214654. All rights reserved.</p>
     </footer>
+
 </body>
 </html>
