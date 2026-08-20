@@ -1,217 +1,899 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Unforgotten | Supporting Children with Disabilities & Special Needs</title>
-    <style>
-        :root {
-            --primary: #1b4332;
-            --secondary: #2d6a4f;
-            --accent: #52b788;
-            --bg-light: #f8f9fa;
-            --text-dark: #333333;
-        }
-        body { font-family: Arial, sans-serif; margin: 0; padding: 0; color: var(--text-dark); line-height: 1.6; background-color: #fff; }
-        header { background: linear-gradient(rgba(27, 67, 50, 0.8), rgba(27, 67, 50, 0.8)), url('hero.jpg.jpg'); background-size: cover; background-position: center; color: #fff; padding: 4rem 1rem; text-align: center; }
-        header h1 { margin: 0 0 0.5rem 0; font-size: 2.5rem; }
-        header p { margin: 0; font-size: 1.2rem; opacity: 0.9; }
-        
-        nav { background: var(--secondary); padding: 0.8rem; text-align: center; position: sticky; top: 0; z-index: 1000; box-shadow: 0 2px 4px rgba(0,0,0,0.1); }
-        nav a { color: white; margin: 0 12px; text-decoration: none; font-weight: bold; font-size: 0.95rem; transition: color 0.2s; }
-        nav a:hover { color: var(--accent); }
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Unforgotten — Will Be Heard</title>
+  <style>
+    :root {
+      --bg: #d4e8f3; /* Pastel cyan/blue matching design */
+      --surface: rgba(255, 255, 255, 0.85);
+      --surface-hover: rgba(255, 255, 255, 0.95);
+      --text: #0a3d54; /* Deep navy/teal for contrast */
+      --muted: #245973;
+      --border: rgba(10, 61, 84, 0.15);
+      --shadow: 0 12px 30px rgba(10, 61, 84, 0.08);
+      --pink: #ec297b; /* Vibrant pink */
+      --pink-hover: #d21c69;
+      --max: 1160px;
+    }
 
-        .container { padding: 3rem 1.5rem; max-width: 900px; margin: auto; }
-        section { margin-bottom: 3rem; scroll-margin-top: 80px; }
-        
-        h2 { color: var(--primary); border-bottom: 2px solid var(--accent); padding-bottom: 0.5rem; margin-top: 0; }
-        h3 { color: var(--secondary); margin-top: 1.5rem; }
-        
-        .card { background: var(--bg-light); border-left: 4px solid var(--secondary); padding: 1.5rem; margin: 1rem 0; border-radius: 0 8px 8px 0; }
-        ul { padding-left: 1.5rem; }
-        li { margin-bottom: 0.5rem; }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif;
+      color: var(--text);
+      background-color: var(--bg);
+      line-height: 1.6;
+    }
 
-        .stats-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1.5rem; margin: 1.5rem 0; }
-        .stat-box { background: #e9f5ed; padding: 1.5rem; border-radius: 8px; text-align: center; }
-        .stat-box h4 { margin: 0 0 0.5rem 0; color: var(--primary); font-size: 1.5rem; }
+    a { color: var(--text); text-decoration: none; }
+    a:hover { color: var(--pink); }
 
-        footer { background: #081c15; color: #fff; text-align: center; padding: 2rem 1rem; margin-top: 3rem; }
-        footer a { color: var(--accent); text-decoration: none; }
-    </style>
+    .container {
+      max-width: var(--max);
+      margin: 0 auto;
+      padding: 0 1.5rem;
+    }
+
+    /* =========================
+       Header & Navigation
+       ========================= */
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background-color: var(--bg);
+      backdrop-filter: blur(8px);
+      border-bottom: 1px solid var(--border);
+      padding: 0.75rem 0;
+    }
+
+    .nav-wrap {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .logo-img {
+      width: 42px;
+      height: 42px;
+      object-fit: contain;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 1.75rem;
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      font-weight: 500;
+      font-size: 1.05rem;
+    }
+
+    .nav-links a {
+      position: relative;
+      padding-bottom: 2px;
+    }
+
+    .nav-links a:hover, .nav-links a.active {
+      color: var(--pink);
+    }
+
+    .donate-btn {
+      background-color: var(--pink);
+      color: #fff !important;
+      padding: 0.65rem 1.75rem;
+      border-radius: 999px;
+      font-weight: 700;
+      box-shadow: 0 4px 14px rgba(236, 41, 123, 0.3);
+      transition: background 0.2s ease, transform 0.1s ease;
+    }
+
+    .donate-btn:hover {
+      background-color: var(--pink-hover);
+      transform: translateY(-1px);
+    }
+
+    .menu-btn {
+      display: none;
+      background: none;
+      border: none;
+      font-size: 1.5rem;
+      color: var(--text);
+      cursor: pointer;
+    }
+
+    @media (max-width: 860px) {
+      .nav-links { display: none; }
+      .menu-btn { display: block; }
+      .mobile-menu {
+        display: none;
+        flex-direction: column;
+        gap: 1rem;
+        padding: 1rem 0;
+        border-top: 1px solid var(--border);
+        margin-top: 0.75rem;
+      }
+      .mobile-menu.open { display: flex; }
+    }
+
+    /* =========================
+       Hero Section (Home)
+       ========================= */
+    .hero {
+      padding: 3rem 0 4rem;
+      text-align: center;
+    }
+
+    .aim-box {
+      background-color: var(--pink);
+      color: #fff;
+      max-width: 850px;
+      margin: 0 auto;
+      padding: 2.2rem 2.5rem;
+      border-radius: 20px;
+      font-size: 1.25rem;
+      font-weight: 500;
+      box-shadow: 0 10px 25px rgba(236, 41, 123, 0.2);
+    }
+
+    .hero-gallery {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5rem;
+      margin-top: 3rem;
+    }
+
+    .gallery-img-placeholder {
+      background: var(--surface);
+      border: 2px dashed var(--border);
+      border-radius: 16px;
+      height: 220px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--muted);
+      font-weight: 600;
+    }
+
+    @media (max-width: 768px) {
+      .hero-gallery { grid-template-columns: 1fr; }
+    }
+
+    /* =========================
+       Sections General
+       ========================= */
+    section {
+      padding: 4rem 0;
+      border-top: 1px solid var(--border);
+    }
+
+    h2.section-heading {
+      font-size: 2.5rem;
+      margin-bottom: 2rem;
+      color: var(--text);
+    }
+
+    /* =========================
+       About Us Section
+       ========================= */
+    .about-brand-center {
+      text-align: center;
+      margin-bottom: 3rem;
+    }
+    .about-brand-center img {
+      width: 60px;
+      height: 60px;
+      margin-bottom: 0.5rem;
+    }
+    .about-brand-center span {
+      display: block;
+      font-weight: 700;
+      font-size: 1.2rem;
+      letter-spacing: 2px;
+      color: var(--pink);
+    }
+
+    .mission-vision-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2rem;
+      margin-bottom: 2rem;
+    }
+
+    .card {
+      background: var(--surface);
+      border-radius: 20px;
+      padding: 2.5rem;
+      box-shadow: var(--shadow);
+      border: 1px solid var(--border);
+    }
+
+    .card h3 {
+      font-size: 1.8rem;
+      margin-top: 0;
+      color: var(--text);
+    }
+
+    .goal-card {
+      max-width: 700px;
+      margin: 0 auto 3rem auto;
+      text-align: left;
+    }
+
+    .story-section {
+      display: grid;
+      grid-template-columns: 1fr 2fr;
+      gap: 3rem;
+      align-items: center;
+      margin-top: 4rem;
+    }
+
+    .evolution-location-block {
+      margin-top: 4rem;
+    }
+
+    .evolution-location-block h3 {
+      font-size: 2.2rem;
+      color: var(--text);
+      margin-bottom: 1rem;
+    }
+
+    @media (max-width: 768px) {
+      .mission-vision-grid, .story-section { grid-template-columns: 1fr; }
+    }
+
+    /* =========================
+       Our Team Page Section
+       ========================= */
+    .founders-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2rem;
+      margin-top: 2rem;
+    }
+
+    .founder-card {
+      background: var(--surface);
+      border-radius: 20px;
+      padding: 2rem;
+      text-align: center;
+      cursor: pointer;
+      border: 2px solid transparent;
+      transition: all 0.2s ease;
+      box-shadow: var(--shadow);
+    }
+
+    .founder-card:hover {
+      border-color: var(--pink);
+      transform: translateY(-3px);
+    }
+
+    .founder-avatar {
+      width: 140px;
+      height: 140px;
+      background: #fff;
+      border-radius: 50%;
+      margin: 0 auto 1.2rem auto;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.06);
+      overflow: hidden;
+    }
+
+    .founder-avatar img {
+      width: 90px;
+      height: 90px;
+      object-fit: contain;
+    }
+
+    .founder-details {
+      margin-top: 1rem;
+      padding-top: 1rem;
+      border-top: 1px solid var(--border);
+      display: none;
+      text-align: left;
+      font-size: 0.95rem;
+      color: var(--muted);
+    }
+
+    .founder-card.active .founder-details {
+      display: block;
+    }
+
+    .trustees-intro-grid {
+      display: grid;
+      grid-template-columns: 1fr 1.2fr;
+      gap: 3rem;
+      align-items: center;
+      margin-bottom: 4rem;
+    }
+
+    .trustee-list {
+      list-style: none;
+      padding: 0;
+      margin: 1.5rem 0;
+    }
+
+    .trustee-list li {
+      padding: 0.75rem 0;
+      border-bottom: 1px solid var(--border);
+      font-weight: 500;
+    }
+
+    .trustees-cards-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2rem;
+      text-align: center;
+    }
+
+    .trustee-profile-card {
+      background: var(--surface);
+      padding: 2rem 1.5rem;
+      border-radius: 20px;
+      box-shadow: var(--shadow);
+      border: 1px solid var(--border);
+    }
+
+    .trustee-avatar {
+      width: 130px;
+      height: 130px;
+      border-radius: 50%;
+      border: 2px solid var(--pink);
+      margin: 0 auto 1rem auto;
+      background: #fff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .trustee-avatar img {
+      width: 70px;
+      height: 70px;
+      object-fit: contain;
+    }
+
+    @media (max-width: 860px) {
+      .trustees-intro-grid, .trustees-cards-grid, .founders-grid { grid-template-columns: 1fr; }
+    }
+
+    /* =========================
+       Projects Page Styles
+       ========================= */
+    .project-intro {
+      font-size: 1.1rem;
+      margin-bottom: 3rem;
+      max-width: 900px;
+    }
+
+    .project-block-grid {
+      display: grid;
+      grid-template-columns: 1.4fr 1fr;
+      gap: 3rem;
+      align-items: start;
+      margin-bottom: 3rem;
+    }
+
+    .video-placeholder {
+      background: var(--surface);
+      border: 2px dashed var(--border);
+      border-radius: 16px;
+      min-height: 280px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      color: var(--muted);
+      font-weight: 600;
+      padding: 1.5rem;
+      text-align: center;
+    }
+
+    .stats-container {
+      background: var(--surface);
+      border-radius: 24px;
+      padding: 2.5rem;
+      border: 1px solid var(--border);
+      box-shadow: var(--shadow);
+      margin: 3rem 0;
+    }
+
+    .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5rem;
+      margin-bottom: 3rem;
+    }
+
+    .stat-box {
+      background: #fff;
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 2rem 1rem;
+      text-align: center;
+    }
+
+    .stat-number {
+      font-size: 2.8rem;
+      font-weight: 700;
+      color: var(--pink);
+      line-height: 1.1;
+      margin-bottom: 0.5rem;
+    }
+
+    .stat-label {
+      font-weight: 500;
+      color: var(--text);
+    }
+
+    .quote-pill {
+      background: #c3e2f5;
+      color: var(--pink);
+      font-style: italic;
+      font-weight: 600;
+      text-align: center;
+      max-width: 750px;
+      margin: 3rem auto 1rem auto;
+      padding: 1.5rem 2rem;
+      border-radius: 999px;
+      font-size: 1.15rem;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.03);
+    }
+
+    @media (max-width: 860px) {
+      .project-block-grid, .stats-grid { grid-template-columns: 1fr; }
+    }
+
+    /* =========================
+       Footer / Contact Section
+       ========================= */
+    footer {
+      background-color: var(--pink);
+      color: #fff;
+      padding: 4rem 0 2.5rem;
+      margin-top: 5rem;
+    }
+
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 2fr 1fr;
+      gap: 3rem;
+      align-items: start;
+    }
+
+    .footer-brand-title {
+      font-size: 2.5rem;
+      font-weight: 700;
+      margin: 0 0 1rem 0;
+      line-height: 1.2;
+    }
+
+    .footer-email {
+      font-size: 1.2rem;
+      margin-bottom: 1.5rem;
+      display: block;
+      color: #fff;
+      text-decoration: underline;
+    }
+
+    .footer-legal {
+      font-size: 0.9rem;
+      opacity: 0.9;
+      max-width: 550px;
+      line-height: 1.5;
+    }
+
+    .footer-links h4 {
+      margin-top: 0;
+      font-size: 1.2rem;
+      margin-bottom: 1rem;
+    }
+
+    .footer-nav-list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+    }
+
+    .footer-nav-list a {
+      color: #fff;
+      font-size: 1.1rem;
+      text-decoration: underline;
+      font-weight: 500;
+    }
+
+    .footer-nav-list a:hover {
+      opacity: 0.8;
+    }
+
+    @media (max-width: 768px) {
+      .footer-grid { grid-template-columns: 1fr; gap: 2rem; }
+    }
+  </style>
 </head>
 <body>
 
-    <header>
-        <h1>Unforgotten</h1>
-        <p>Improving the lives of children with disabilities and special needs in rural areas</p>
-    </header>
+  <!-- =========================
+     Header
+     ========================= -->
+  <header>
+    <div class="container nav-wrap">
+      <a href="#home" class="brand">
+        <img src="logo.png" alt="Unforgotten Logo" class="logo-img" onerror="this.src='data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\' width=\'42\' height=\'42\' viewBox=\'0 0 24 24\' fill=\'none\' stroke=\'%23ec297b\' stroke-width=\'2\'><path d=\'M9.5 2A5.5 5.5 0 0 0 4 7.5c0 2.3 1.4 4.3 3.5 5.2V16a1 1 0 0 0 1 1h4a1 1 0 0 0 1-1v-3.3c2.1-.9 3.5-2.9 3.5-5.2A5.5 5.5 0 0 0 14.5 2h-5z\'/><circle cx=\'12\' cy=\'7\' r=\'1\' fill=\'%23ec297b\'/></svg>'" />
+      </a>
 
-    <nav>
-        <a href="#about">About</a>
-        <a href="#impact">Impact Journey</a>
-        <a href="#news">Latest News</a>
-        <a href="#contact">Contact</a>
-        <a href="#donate" style="background: var(--accent); padding: 6px 12px; border-radius: 4px;">Donate</a>
-    </nav>
-
-    <div class="container">
-
-        <!-- ABOUT SECTION -->
-        <section id="about">
-            <h2>About Us</h2>
-            
-            <div class="card">
-                <h3>Our Mission</h3>
-                <p>To improve the lives of children with disabilities and special needs living in rural areas of low-income countries.</p>
-            </div>
-
-            <div class="card">
-                <h3>Our Vision</h3>
-                <p>A world where no child is denied access to education because of their abilities, background, or community. We work to break down barriers and create opportunities so that every child can learn, grow, and thrive.</p>
-            </div>
-
-            <div class="card">
-                <h3>Our Objectives</h3>
-                <p>To promote social inclusion and relieve the needs of children with disabilities or special educational needs living in rural areas of low-income countries, particularly those who are socially excluded due to their condition, with a particular focus on deaf children.</p>
-                <p>We aim to achieve this for the public benefit by:</p>
-                <ul>
-                    <li>Providing or supporting access to education, training, resources, and equipment</li>
-                    <li>Raising public awareness of the issues affecting such people, both generally and in relation to their social exclusion</li>
-                    <li>Providing training on identifying early signs of deafness and effective communication within families and the community through sign language</li>
-                </ul>
-                <p>To advance education in the causes and prevention of deafness for the public benefit in particular but not exclusively by delivering training and awareness programmes.</p>
-            </div>
-
-            <div class="card">
-                <h3>Our Goal</h3>
-                <p>To facilitate access to education, foster social inclusion, and raise awareness about the challenges these children face.</p>
-            </div>
-
-            <div class="card">
-                <h3>Our Story</h3>
-                <p>We are Álvaro Sampedro and María Castrillo, founders of Unforgotten. We met on a plane traveling from Madrid to Bristol, where we were both living at the time. That journey marked the beginning of our friendship, which has since been shaped by shared experiences—including a trip to Rwanda, where the idea for Unforgotten was born.</p>
-                <p>Although we are both from Madrid, our different backgrounds complement each other and bring a diverse set of skills to the organization.</p>
-                <p><strong>Álvaro</strong> studied Chemical Engineering. He enjoys working with data and is passionate about sports, travel, and learning about different cultures.</p>
-                <p><strong>María</strong> studied Law and has extensive experience in event organization and the charity sector. She is particularly interested in geopolitics and social issues.</p>
-                <p>We began building Unforgotten in January 2024. During this time, we have held extensive discussions with the Nyabihu School for the Deaf management and staff, engaged with other charities operating in the region, and sought guidance from experts in the field.</p>
-                <p><strong>Unforgotten was officially registered with the UK Charity Commission in August 2025.</strong></p>
-            </div>
-
-            <div class="card">
-                <h3>Location & Legal Status</h3>
-                <p>Based in the United Kingdom. Registered with the Charity Commission for England and Wales. Operating through direct partnerships in Rwanda.</p>
-                <p><strong>Registered Charity Number: 1214654</strong></p>
-            </div>
-
-            <div class="card">
-                <h3>Meet Our Team – Trustees</h3>
-                <p>The day-to-day operations of the charity are managed by María and Álvaro, supported by passionate individuals who contribute voluntarily. We work closely with local professionals and experts in Deaf education, ensuring that initiatives are locally led and sustainable.</p>
-                <p>A key pillar of our organization is our Board of Trustees, who provide strategic guidance, ensure alignment with our mission, oversee finances and compliance, and support risk management.</p>
-                <p><strong>Our Board of Trustees includes:</strong></p>
-                <ol>
-                    <li>Irene Soliño</li>
-                    <li>Kasia Dragun</li>
-                    <li>Susannah Stanway</li>
-                </ol>
-                <p><em>(Photos and short bios coming soon.)</em></p>
-            </div>
-        </section>
-
-        <!-- IMPACT JOURNEY SECTION -->
-        <section id="impact">
-            <h2>Impact Journey / Projects / Where We Work</h2>
-            <p>Currently, all our projects are focused on our partner school: <strong>Nyabihu School for the Deaf</strong>. This is the school where Álvaro volunteered for four months (November 2023 – February 2024).</p>
-
-            <h3>1. Summer Camp 2025</h3>
-            <p>The Unforgotten Summer Camp 2025 took place in August at the Nyabihu School for the Deaf, located in the Nyabihu District, Western Province of Rwanda. This initiative was developed in collaboration with the school to create a safe, creative, and engaging environment where students could learn and grow outside the pressures of the academic year.</p>
-            
-            <p><strong>Key Objectives of Summer Camp 2025:</strong></p>
-            <ul>
-                <li>Improve reading comprehension (a key academic challenge)</li>
-                <li>Strengthen practical math skills for everyday life</li>
-                <li>Train teachers in the use of digital tools (computers)</li>
-                <li>Develop vocational skills (e.g., sewing workshops)</li>
-                <li>Encourage artistic expression through art and dance</li>
-            </ul>
-
-            <p><strong>Impact & Learnings:</strong></p>
-            <p>The Summer Camp marked an important milestone for Unforgotten. It delivered meaningful learning experiences, strengthened trust with the school, and established a foundation for long-term collaboration.</p>
-            
-            <p>To measure long-term impact, we have requested annual reports from the school including:</p>
-            <ol>
-                <li>Number of enrolled students</li>
-                <li>National exam results</li>
-                <li>Outcomes of former students (education, employment, unemployment)</li>
-            </ol>
-
-            <div class="stats-grid">
-                <div class="stat-box">
-                    <h4>25.9%</h4>
-                    <p>Passed national exams over the past five years (14 out of 54 students).</p>
-                </div>
-                <div class="stat-box">
-                    <h4>64%</h4>
-                    <p>Former students currently unemployed or not studying (60 out of 93).</p>
-                </div>
-            </div>
-            <p><em>These figures highlight systemic barriers affecting deaf students’ access to education and employment.</em></p>
-
-            <h3>2. Books for the School (February 2026)</h3>
-            <p><strong>Making Learning Easier:</strong> In February 2026, we provided 190 textbooks to the school. Previously, most classes had only one textbook per subject, typically used by the teacher. This made it difficult for students to actively engage in lessons.</p>
-            
-            <p><strong>With increased access to books:</strong></p>
-            <ul>
-                <li>Students can follow lessons more effectively</li>
-                <li>Visual learning is improved through images and explanations</li>
-                <li>Confidence and participation in class increases</li>
-                <li>Teachers can now deliver lessons in a more structured and effective way</li>
-            </ul>
-
-            <p><strong>Opening Opportunities:</strong> This initiative supports students in preparing for their National Exams, which are required to progress to secondary education. Access to proper learning materials increases their chances of success and opens the door to further education and opportunities. Sometimes, something as simple as a book can transform a student’s future.</p>
-        </section>
-
-        <!-- LATEST NEWS SECTION -->
-        <section id="news">
-            <h2>Latest News</h2>
-            <p>Welcome to our updates section! Check back here regularly for news, progress reports, and stories about our activities and impact in Rwanda and the UK.</p>
-            <div class="card">
-                <p><em>No recent announcements posted yet. Stay tuned!</em></p>
-            </div>
-        </section>
-
-        <!-- CONTACT SECTION -->
-        <section id="contact">
-            <h2>Contact</h2>
-            <p>Email: <a href="mailto:unforgottenwbh@gmail.com">unforgottenwbh@gmail.com</a></p>
-            <p>Connect with us on social media:</p>
-            <ul>
-                <li>Instagram: <a href="#" target="_blank">@unforgotten</a> (Link coming soon)</li>
-                <li>LinkedIn: <a href="#" target="_blank">Unforgotten NGO</a> (Link coming soon)</li>
-            </ul>
-        </section>
-
-        <!-- DONATE SECTION -->
-        <section id="donate">
-            <h2>Donate</h2>
-            <div class="card" style="border-left-color: var(--accent);">
-                <h3>Support Our Cause</h3>
-                <p>We welcome direct contributions to support our educational initiatives and projects. You can donate directly to our bank account using the details below:</p>
-                <ul>
-                    <li><strong>Bank Name:</strong> [Insert Bank Name]</li>
-                    <li><strong>Account Name:</strong> Unforgotten</li>
-                    <li><strong>Account Number:</strong> [Insert Account Number]</li>
-                    <li><strong>Sort Code / Routing Number:</strong> [Insert Sort Code]</li>
-                    <li><strong>Reference:</strong> Donation / General Support</li>
-                </ul>
-                <p><em>Thank you for helping us break down barriers and create opportunities for children with special needs.</em></p>
-            </div>
-        </section>
-
+      <nav>
+        <button class="menu-btn" id="menuToggle" aria-label="Toggle navigation">☰</button>
+        <ul class="nav-links">
+          <li><a href="#home" class="active">Home</a></li>
+          <li><a href="#about">About Us</a></li>
+          <li><a href="#team">Our Team</a></li>
+          <li><a href="#projects">Projects</a></li>
+          <li><a href="#news">Latest News</a></li>
+          <li><a href="#contact">Contact</a></li>
+          <li><a href="#donate" class="donate-btn">Donate</a></li>
+        </ul>
+      </nav>
     </div>
 
-    <footer>
-        <p>&copy; 2026 Unforgotten. Registered Charity Number: 1214654. All rights reserved.</p>
-    </footer>
+    <div class="container">
+      <ul class="mobile-menu" id="mobileMenu">
+        <li><a href="#home">Home</a></li>
+        <li><a href="#about">About Us</a></li>
+        <li><a href="#team">Our Team</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#news">Latest News</a></li>
+        <li><a href="#contact">Contact</a></li>
+        <li><a href="#donate" style="color:var(--pink); font-weight:700;">Donate</a></li>
+      </ul>
+    </div>
+  </header>
 
+  <main>
+    <!-- =========================
+       Main Page / Home Section
+       ========================= -->
+    <section id="home" class="hero" style="border:none; padding-top:2rem;">
+      <div class="container">
+        <div class="aim-box">
+          Promote education on the causes and prevention of deafness for the benefit of the general public, including through training and awareness-raising programmes.
+        </div>
+
+        <div class="hero-gallery">
+          <div class="gallery-img-placeholder">[ Image 1 Placeholder ]</div>
+          <div class="gallery-img-placeholder">[ Image 2 Placeholder ]</div>
+          <div class="gallery-img-placeholder">[ Image 3 Placeholder ]</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- =========================
+       About Us Section
+       ========================= -->
+    <section id="about">
+      <div class="container">
+        <div class="about-brand-center">
+          <img src="logo.png" alt="Unforgotten Logo" onerror="this.src='data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\' width=\'60\' height=\'60\' viewBox=\'0 0 24 24\' fill=\'none\' stroke=\'%23ec297b\' stroke-width=\'2\'><path d=\'M9.5 2A5.5 5.5 0 0 0 4 7.5c0 2.3 1.4 4.3 3.5 5.2V16a1 1 0 0 0 1 1h4a1 1 0 0 0 1-1v-3.3c2.1-.9 3.5-2.9 3.5-5.2A5.5 5.5 0 0 0 14.5 2h-5z\'/><circle cx=\'12\' cy=\'7\' r=\'1\' fill=\'%23ec297b\'/></svg>'"/>
+          <span>UNFORGOTTEN</span>
+        </div>
+
+        <div class="mission-vision-grid">
+          <div class="card">
+            <h3>Our Mission</h3>
+            <p>Improving the lives of children with disabilities and special needs living in rural areas of low-income countries.</p>
+          </div>
+          <div class="card">
+            <h3>Our Vision</h3>
+            <p>A world in which no child is deprived of access to education because of their abilities, their origin or their community. We work to remove barriers and create opportunities for every child to learn, grow, and develop.</p>
+          </div>
+        </div>
+
+        <div class="card goal-card">
+          <h3>Our Goal</h3>
+          <p>Facilitate access to education, foster social inclusion and raise awareness of the challenges faced by these children.</p>
+        </div>
+
+        <div class="story-section">
+          <div>
+            <h2 style="font-size: 2.5rem; margin:0; color:var(--text);">Our Story</h2>
+          </div>
+          <div>
+            <p style="margin:0; font-size: 1.05rem; color:var(--muted);">
+              We are Álvaro Sampedro and María Castrillo, founders of Unforgotten. We met on a plane traveling from Madrid to Bristol, where we both lived at the time. That trip marked the beginning of our friendship, which has since been strengthened through shared experiences, including a trip to Rwanda, where the idea for Unforgotten was born. Although we are both from Madrid, our different profiles complement each other and bring a diversity of skills to the organization.
+            </p>
+          </div>
+        </div>
+
+        <!-- Evolution & Registration Section -->
+        <div class="evolution-location-block">
+          <h3>Our evolution</h3>
+          <p style="color:var(--muted); margin-bottom: 2.5rem;">
+            We started developing Unforgotten in January 2024. During this time, we have had numerous discussions with the management and staff of the Nyabihu School for the Deaf, collaborated with other charities in the region, and sought guidance from experts in the field. Unforgotten was officially registered with the UK Charity Commission in August 2025.
+          </p>
+
+          <h3>Location and Registration</h3>
+          <p style="color:var(--muted); margin:0;">
+            Based in the United Kingdom, registered with the Charity Commission of England and Wales, it operates through direct collaborations in Rwanda.<br>
+            <strong>Charity Registration Number:</strong> 1214654
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- =========================
+       Our Team Page Section
+       ========================= -->
+    <section id="team">
+      <div class="container">
+        <h2 class="section-heading">Founders</h2>
+
+        <div class="founders-grid">
+          <div class="founder-card" onclick="this.classList.toggle('active')">
+            <div class="founder-avatar">
+              <img src="alvaro.png" alt="Álvaro Sampedro" onerror="this.src='data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\' width=\'70\' height=\'70\' viewBox=\'0 0 24 24\' fill=\'none\' stroke=\'%230a3d54\' stroke-width=\'2\'><path d=\'M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2\'/><circle cx=\'12\' cy=\'7\' r=\'4\'/></svg>'"/>
+            </div>
+            <h3 style="margin-bottom:0.25rem;">Álvaro Sampedro</h3>
+            <p style="font-size:0.9rem; color:var(--muted); margin:0;">Click to view details</p>
+            <div class="founder-details">
+              Álvaro studied Chemical Engineering. He enjoys working with data and is passionate about sports, travel, and learning about different cultures.
+            </div>
+          </div>
+
+          <div class="founder-card" onclick="this.classList.toggle('active')">
+            <div class="founder-avatar">
+              <img src="maria.png" alt="María Castrillo" onerror="this.src='data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\' width=\'70\' height=\'70\' viewBox=\'0 0 24 24\' fill=\'none\' stroke=\'%230a3d54\' stroke-width=\'2\'><path d=\'M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2\'/><circle cx=\'12\' cy=\'7\' r=\'4\'/></svg>'"/>
+            </div>
+            <h3 style="margin-bottom:0.25rem;">María Castrillo</h3>
+            <p style="font-size:0.9rem; color:var(--muted); margin:0;">Click to view details</p>
+            <div class="founder-details">
+              Maria studied law and has extensive experience in event planning and the charity sector. She is particularly interested in geopolitics and social issues.
+            </div>
+          </div>
+        </div>
+
+        <div style="margin-top: 5rem;">
+          <div class="trustees-intro-grid">
+            <div class="card" style="background:var(--surface);">
+              <p style="margin:0; font-style: italic; color:var(--pink); font-size:1.15rem; font-weight:600;">
+                We work closely with local professionals and experts in deaf education, ensuring that initiatives are locally led and sustainable.
+              </p>
+            </div>
+            <div>
+              <h3 style="color:var(--pink); font-size:1.6rem; margin-top:0;">A fundamental pillar of our organisation is our Board of Trustees:</h3>
+              <ul class="trustee-list">
+                <li>• Provides strategic guidance</li>
+                <li>• Ensures alignment with our mission</li>
+                <li>• Oversees finances and regulatory compliance</li>
+                <li>• Supports risk management</li>
+              </ul>
+              <p style="font-weight:500; margin-bottom:0;">
+                Together, we aspire to make a lasting impact and provide greater opportunities for deaf children.
+              </p>
+            </div>
+          </div>
+
+          <h2 class="section-heading" style="text-align: center; margin-top: 4rem;">Board of Trustees</h2>
+          <div class="trustees-cards-grid">
+            <div class="trustee-profile-card">
+              <div class="trustee-avatar">
+                <img src="irene.png" alt="Irene Soliño" onerror="this.src='data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\' width=\'50\' height=\'50\' viewBox=\'0 0 24 24\' fill=\'none\' stroke=\'%23ec297b\' stroke-width=\'2\'><path d=\'M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2\'/><circle cx=\'12\' cy=\'7\' r=\'4\'/></svg>'"/>
+              </div>
+              <h3 style="font-size:1.25rem; margin-bottom:0.25rem;">Irene Soliño</h3>
+              <p style="font-size:0.85rem; color:var(--muted); margin:0;">Brief description some curious fact</p>
+            </div>
+
+            <div class="trustee-profile-card">
+              <div class="trustee-avatar">
+                <img src="kasia.png" alt="Kasia Dragun" onerror="this.src='data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\' width=\'50\' height=\'50\' viewBox=\'0 0 24 24\' fill=\'none\' stroke=\'%23ec297b\' stroke-width=\'2\'><path d=\'M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2\'/><circle cx=\'12\' cy=\'7\' r=\'4\'/></svg>'"/>
+              </div>
+              <h3 style="font-size:1.25rem; margin-bottom:0.25rem;">Kasia Dragun</h3>
+              <p style="font-size:0.85rem; color:var(--muted); margin:0;">Brief description some curious fact</p>
+            </div>
+
+            <div class="trustee-profile-card">
+              <div class="trustee-avatar">
+                <img src="susannah.png" alt="Susannah Stanway" onerror="this.src='data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\' width=\'50\' height=\'50\' viewBox=\'0 0 24 24\' fill=\'none\' stroke=\'%23ec297b\' stroke-width=\'2\'><path d=\'M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2\'/><circle cx=\'12\' cy=\'7\' r=\'4\'/></svg>'"/>
+              </div>
+              <h3 style="font-size:1.25rem; margin-bottom:0.25rem;">Susannah Stanway</h3>
+              <p style="font-size:0.85rem; color:var(--muted); margin:0;">Brief description some curious fact</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- =========================
+       Projects Page Section
+       ========================= -->
+    <section id="projects">
+      <div class="container">
+        <h2 class="section-heading">Projects</h2>
+        <p class="project-intro">
+          Currently, all our projects are focused on our partner center: Nyabihu School for the Deaf (<a href="#" style="color:var(--pink); text-decoration:underline;">school website</a>). This is the center where Álvaro volunteered for four months (November 2023 – February 2024).
+        </p>
+
+        <!-- Summer Camp 2025 -->
+        <h3 style="font-size: 2rem; color: var(--text); margin-bottom: 1.5rem;">Summer Camp 2025</h3>
+        
+        <div class="project-block-grid">
+          <div>
+            <p style="margin-top:0;">
+              The Unforgotten 2025 Summer Camp took place in August at the Nyabihu School for the Deaf, located in Nyabihu district, in Rwanda's Western Province. This provided a space where students could learn and develop outside the pressure of the academic year.
+            </p>
+
+            <h4 style="color:var(--text); margin-top:1.5rem; font-size:1.2rem;">Main objectives</h4>
+            <ul style="padding-left: 1.2rem; margin: 0.5rem 0 1.5rem 0; color: var(--muted);">
+              <li>Improve reading comprehension (a key academic challenge)</li>
+              <li>Reinforce practical math skills for daily living</li>
+              <li>Train teachers in the use of digital tools (computers)</li>
+              <li>Develop vocational skills (e.g., sewing workshops)</li>
+              <li>Encourage artistic expression through art and dance</li>
+            </ul>
+
+            <h4 style="color:var(--text); font-size:1.2rem;">Impact and learnings</h4>
+            <p style="margin-top:0.25rem;">Summer Camp was an important milestone for Unforgotten.</p>
+            <ul style="padding-left: 1.2rem; margin: 0.5rem 0 0 0; color: var(--muted);">
+              <li>Offered meaningful learning experiences</li>
+              <li>Reinforced confidence with the center</li>
+              <li>Laid the foundation for long-term collaboration</li>
+            </ul>
+          </div>
+
+          <!-- Video placeholder on the right side -->
+          <div>
+            <div class="video-placeholder">
+              <span style="font-size: 2rem; margin-bottom: 0.5rem;">▶</span>
+              [ Video Placeholder / Embed Slot ]
+              <span style="font-size: 0.85rem; font-weight: 400; margin-top: 0.5rem; opacity: 0.8;">(Video to be added later via GitHub)</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Statistics & Impact Measurement Box -->
+        <div class="stats-container">
+          <div class="stats-grid">
+            <div class="stat-box">
+              <div class="stat-number">54</div>
+              <div class="stat-label">Total Students</div>
+            </div>
+            <div class="stat-box">
+              <div class="stat-number">25,9%</div>
+              <div class="stat-label">Pass rate</div>
+            </div>
+            <div class="stat-box">
+              <div class="stat-number">64%</div>
+              <div class="stat-label">Alumni Unemployment</div>
+            </div>
+          </div>
+
+          <div class="project-block-grid" style="margin-bottom:0;">
+            <div>
+              <h4 style="color:var(--text); margin-top:0; font-size:1.3rem;">Impact measurement</h4>
+              <p style="color:var(--muted);">To measure long-term impact, we have requested annual reports from the center that include:</p>
+              <ul style="padding-left: 1.2rem; color: var(--muted); margin:0;">
+                <li>Number of students enrolled</li>
+                <li>National exam results</li>
+                <li>Status of former students (education, employment, unemployment)</li>
+              </ul>
+            </div>
+
+            <div>
+              <h4 style="color:var(--text); margin-top:0; font-size:1.3rem;">Key findings</h4>
+              <ul style="padding-left: 1.2rem; color: var(--muted); margin:0 0 1rem 0;">
+                <li>Only 14 out of 54 students (25.9%) passed the national exams in the last five years.</li>
+                <li>64% of alumni (60 out of 93) are currently unemployed or out of school.</li>
+              </ul>
+              <p style="color: var(--pink); font-weight: 600; font-style: italic; margin:0;">
+                These figures highlight the structural barriers that affect access to education and employment for deaf students.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Books for School (February 2026) -->
+        <div style="margin-top: 5rem;">
+          <h3 style="font-size: 2rem; color: var(--text); margin-bottom: 1.5rem;">Books for School (February 2026)</h3>
+          
+          <h4 style="color:var(--text); font-size:1.3rem;">Making learning easier</h4>
+          <p style="color:var(--muted); max-width: 900px; margin-bottom: 2rem;">
+            In February 2026, we provided 190 textbooks to the center. Previously, most classes had only one book per subject, which was usually used by the teacher. This made it difficult for students to actively participate in classes.
+          </p>
+
+          <div class="project-block-grid">
+            <div>
+              <h4 style="color:var(--text); margin-top:0; font-size:1.2rem;">Benefits of access to books</h4>
+              <ul style="padding-left: 1.2rem; color: var(--muted); margin: 0 0 1rem 0;">
+                <li>Students can follow classes more effectively</li>
+                <li>Visual learning is enhanced by images and explanations</li>
+                <li>Increase confidence and participation in the classroom</li>
+              </ul>
+              <p style="color:var(--muted); font-weight: 500;">
+                Now, teachers can teach in a more structured and effective way.
+              </p>
+            </div>
+
+            <div>
+              <h4 style="color:var(--text); margin-top:0; font-size:1.2rem;">Opening up opportunities</h4>
+              <p style="color:var(--muted); margin-top:0;">
+                This initiative helps students prepare for the National Exams, which are necessary to access secondary education.
+              </p>
+              <p style="color:var(--muted);">
+                Access to appropriate educational materials increases their chances of success and opens the door to further training and new opportunities.
+              </p>
+            </div>
+          </div>
+
+          <div class="quote-pill">
+            "Sometimes, something as simple as a book can transform a student's future."
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- Latest News Section Placeholder -->
+    <section id="news">
+      <div class="container">
+        <h2 class="section-heading">Latest News</h2>
+        <p style="color:var(--muted);">Stay tuned for updates, reports, and announcements.</p>
+      </div>
+    </section>
+  </main>
+
+  <!-- =========================
+     Footer / Contact
+     ========================= -->
+  <footer id="contact">
+    <div class="container footer-grid">
+      <div>
+        <h2 class="footer-brand-title">Unforgotten<br>will be heard</h2>
+        <a href="mailto:unforgottenwbh@gmail.com" class="footer-email">unforgottenwbh@gmail.com</a>
+        <p class="footer-legal">
+          Direct partnerships in Rwanda UK headquarters Registered with the Charity Commission of England and Wales Organisation registration number: 1214654
+        </p>
+      </div>
+
+      <div class="footer-links">
+        <h4>Navigation</h4>
+        <ul class="footer-nav-list">
+          <li><a href="#home">Home</a></li>
+          <li><a href="#about">About Us</a></li>
+          <li><a href="#team">Our Team</a></li>
+          <li><a href="#projects">Projects</a></li>
+          <li><a href="#news">Latest News</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    const menuToggle = document.getElementById('menuToggle');
+    const mobileMenu = document.getElementById('mobileMenu');
+
+    if(menuToggle && mobileMenu) {
+      menuToggle.addEventListener('click', () => {
+        mobileMenu.classList.toggle('open');
+      });
+      mobileMenu.querySelectorAll('a').forEach(link => {
+        link.addEventListener('click', () => mobileMenu.classList.remove('open'));
+      });
+    }
+  </script>
 </body>
 </html>
